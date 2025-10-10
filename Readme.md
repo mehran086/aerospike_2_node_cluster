@@ -38,7 +38,8 @@ aerospike-cluster/
  docker network create aerospike-net
 
 ```
-
+Add the path of volumes in docker -> settings -> resources -> file sharing.
+![img.png](img.png)
 ## Step 2: Create Configuration Files
 Create `aerospike_mesh.conf` files for each node with the following content:
 ### node1/aerospike_mesh.conf
