@@ -1,0 +1,37 @@
+version: "3"
+services:
+  aerospike1:
+    image: aerospike/aerospike-server
+    container_name: aerospike1
+    hostname: aerospike1
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
+    volumes:
+      - ./node1/aerospike_mesh.conf:/etc/aerospike/aerospike.conf
+    command: ["asd", "--foreground", "--config-file", "/etc/aerospike/aerospike.conf"]
+
+  aerospike2:
+    image: aerospike/aerospike-server
+    container_name: aerospike2
+    hostname: aerospike2
+    ports:
+      - "4000:3000"
+      - "4001:3001"
+      - "4002:3002"
+    volumes:
+      - ./node2/aerospike_mesh.conf:/etc/aerospike/aerospike.conf
+    command: ["asd", "--foreground", "--config-file", "/etc/aerospike/aerospike.conf"]
+
+  aerospike3:
+    image: aerospike/aerospike-server
+    container_name: aerospike3
+    hostname: aerospike3
+    ports:
+      - "5000:3000"
+      - "5001:3001"
+      - "5002:3002"
+    volumes:
+      - ./node3/aerospike_mesh.conf:/etc/aerospike/aerospike.conf
+    command: ["asd", "--foreground", "--config-file", "/etc/aerospike/aerospike.conf"]
